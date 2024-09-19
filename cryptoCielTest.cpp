@@ -16,10 +16,15 @@ int main()
 
 	HashGestion LM;
 	std::cout << LM.CalculateSHA256(monMessageHash) << std::endl;
-	
+
 	AesGestion monAES;
 	monAES.GenerateAESKey();
 	monAES.SaveAESKeyToFile("ma_clef_aes.key");
+	monAES.LoadAESKeyFromFile("ma_clef_aes.key");
+	monAES.EncryptFileAES256("ma_clef_aes.key", "ma_clef_aes_crypt.key");
+	monAES.DecryptFileAES256("ma_clef_aes_crypt.key", "ma_clef_aes_decrypt.key");
+
+
 
 }
 
