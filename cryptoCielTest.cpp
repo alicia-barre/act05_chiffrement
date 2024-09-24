@@ -25,7 +25,11 @@ int main()
 	monAES.DecryptFileAES256("ma_clef_aes_crypt.key", "ma_clef_aes_decrypt.key");
 
 	RsaGestion monRSA;
-	monRSA.generationClef("clef_public.key", "clef_prive.key", 2048);
+	//monRSA.generationClef("clef_public_alicia.key", "clef_prive_alicia.key", 2048);
+	monRSA.chargementClefs("clef_public_alicia.key", "clef_prive_alicia.key");
+
+	monRSA.chiffreDansFichier("salut", "fichier_chiffre_rsa_alicia.crypt");
+	monRSA.dechiffrementFichier("fichier_chiffre_rsa_alicia.crypt", "fichier_dechiffre_rsa_alicia.decrypt", true);
 	std::string message = "hello";
 	std::string MessageCrypt = monRSA.chiffrementRsa(message);
 	std::cout << MessageCrypt << std::endl;
